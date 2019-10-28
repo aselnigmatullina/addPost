@@ -36,38 +36,11 @@ addEl.onclick = function(ev) {
     ev.preventDefault();
     const value = linkEl.value;
     const type = typeEl.value;
-    if(type =='regular'){
         links.push({
             value,
             type,
             likes:0,
         },);
-        
-    }
-    if(type == 'image'){
-        links.push({
-            value: '1.jpg',
-            type,
-            text: 'Картинка',
-            likes:0,
-        },);
-    }
-    if(type == 'video'){
-        links.push({
-            value: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
-            type,
-            text: 'Видео',
-            likes:0,
-        },);
-    }
-    if(type == 'audio'){
-        links.push({
-            value: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
-            type,
-            text: 'Аудио',
-            likes:0,
-        },);
-    }
     linkEl.innerHTML='';
     rebuildTree(formEl,links);
 };
