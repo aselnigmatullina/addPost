@@ -23,6 +23,8 @@ addFormEl.innerHTML = `
         </div>
     </div>
         <button data-id = "add" class = "btn btn-primary">Добавить</button>
+        <button data-action = "delete" class = "btn btn-danger">Удалить</button>
+
         
 
 </div>
@@ -66,7 +68,7 @@ function rebuildTree(containerEl, items) {
                 <div class = "card-body">
                     <p class = "card-text"></p>
                     <button data-action = "like" class = "btn btn-primary"> ❤ ${item.likes}</button>
-                    <button data-action = "delete" class = "btn btn-danger">Удалить</button>
+                    
 
                 
             `;
@@ -81,7 +83,7 @@ function rebuildTree(containerEl, items) {
                 <div class = "card-body">
                     <p class="card-text"></p>
                     <button data-action = "like" class = "btn btn-primary"> ❤ ${item.likes} </button>
-                    <button data-action = "delete" class = "btn btn-danger">Удалить</button>     
+                       
                 </div>
             </div>
             `;
@@ -96,7 +98,7 @@ function rebuildTree(containerEl, items) {
                         <div class = "card-body"
                             <p class="card-text"></p>
                             <button data-action = "like" class = "btn btn-primary"> ❤ ${item.likes}</button>
-                            <button data-action = "delete" class = "btn btn-danger">Удалить</button>
+                        
 
                             
                         </div>
@@ -110,7 +112,7 @@ function rebuildTree(containerEl, items) {
                         <div class = "card-body"
                             <p class="card-text">${item.value}</p>
                             <button data-action = "like" class = "btn btn-primary">❤ ${item.likes} </button>
-                            <button data-action = "delete" class = "btn btn-danger">Удалить</button>
+                            
 
                             
                         </div>
