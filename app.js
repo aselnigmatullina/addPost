@@ -23,7 +23,7 @@ addFormEl.innerHTML = `
         </div>
     </div>
         <button data-id = "add" class = "btn btn-primary">Добавить</button>
-        <button data-id = "delete" class = "btn btn-danger">Удалить</button>
+        
 
 </div>
 `;
@@ -64,10 +64,13 @@ function rebuildTree(containerEl, items) {
             <div class = "card">
                 <img src = "${item.value}" class = "card-img-top">
                 <div class = "card-body">
-                    <p class = "card-text">${item.text}</p>
+                    <p class = "card-text"></p>
                     <button data-action = "like" class = "btn btn-primary"> ❤ ${item.likes}</button>
+                    <button data-action = "delete" class = "btn btn-danger">Удалить</button>
+
                 
             `;
+           
         }
         else if (item.type == 'video') {
             postEl.innerHTML = `
@@ -76,12 +79,13 @@ function rebuildTree(containerEl, items) {
                     <video src = "${item.value}" class = "embed-responsive-item" controls>
                 </div>
                 <div class = "card-body">
-                    <p class="card-text">${item.text}</p>
+                    <p class="card-text"></p>
                     <button data-action = "like" class = "btn btn-primary"> ❤ ${item.likes} </button>
-                    
+                    <button data-action = "delete" class = "btn btn-danger">Удалить</button>     
                 </div>
             </div>
             `;
+           
         }
         else if (item.type == 'audio'){
             postEl.innerHTML = `
@@ -90,12 +94,15 @@ function rebuildTree(containerEl, items) {
                             <audio src = "${item.value}"  class = "embed-responsive-item" controls>
                         </div>
                         <div class = "card-body"
-                            <p class="card-text">${item.text}</p>
+                            <p class="card-text"></p>
                             <button data-action = "like" class = "btn btn-primary"> ❤ ${item.likes}</button>
+                            <button data-action = "delete" class = "btn btn-danger">Удалить</button>
+
                             
                         </div>
                 </div>
-                `;    
+                `;  
+                 
         }
         else if (item.type == 'regular') {
             postEl.innerHTML = `
@@ -103,21 +110,21 @@ function rebuildTree(containerEl, items) {
                         <div class = "card-body"
                             <p class="card-text">${item.value}</p>
                             <button data-action = "like" class = "btn btn-primary">❤ ${item.likes} </button>
+                            <button data-action = "delete" class = "btn btn-danger">Удалить</button>
+
                             
                         </div>
                     </div>
                 `;
-             
-           
-        }
-        const deleteEl = addFormEl.querySelector('[data-id=delete]');
-            deleteEl.onclick = function() {
-            postEl.innerHTML = '';
-            rebuildTree(containerEl,items);
         
-    }
+        }
+         
+        const deleteEl = postEl.querySelector('[data-action=delete]');
+        deleteEl.onclick = function() {
+        item.value = '';
+        rebuildTree(containerEl,items);
+        }
 
-       
         const likeEl = postEl.querySelector('[data-action=like]');
         likeEl.onclick = function() {
             if(item.likes > 0){
