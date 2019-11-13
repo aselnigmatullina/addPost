@@ -42,7 +42,7 @@ addEl.onclick = function(ev) {
             type,
             likes:0,
         },);
-    linkEl.innerHTML='';
+    linkEl.value ='';
     rebuildTree(formEl,links);
 };
 
