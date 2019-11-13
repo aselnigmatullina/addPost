@@ -130,7 +130,8 @@ function rebuildTree(containerEl, items) {
          
         const deleteEl = postEl.querySelector('[data-action=delete]');
         deleteEl.onclick = function() {
-        item.value = '';
+        const index = items.indexOf(item);
+        items.splice(index,1);
         rebuildTree(containerEl,items);
         }
 
